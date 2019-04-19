@@ -18,15 +18,14 @@ class ProductContainer extends Component<Props> {
     return (
       <ScrollView
         style={{flex: 1,}}
-        contentContainerStyle={{flex: 1,}}
       >
-        <Text>ProductContainer</Text>
+        <ContentDivider flex={1}>
+          <Header>ProductList</Header>
+        </ContentDivider>
         <ContentDivider flex={9}>
           <ProductList products={products}/>
         </ContentDivider>
-        <ContentDivider flex={1} style={{justifyContent: 'flex-end', backgroundColor: 'green'}}>
-          <Paginator/>
-        </ContentDivider>
+        <Paginator/>
       </ScrollView>
     )
   }
@@ -41,6 +40,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getProducts,
 };
+
+const Header = styled.Text`
+  font-size: 30;
+  font-weight: 700;
+`;
 
 const ContentDivider = styled.View`
   flex: ${({flex}) => flex ? flex : 1};

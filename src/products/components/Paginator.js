@@ -45,7 +45,6 @@ const Number = styled.Text`
 
 const PaginatorContainer = styled.View`
   flex-direction: row;
-  background-color: red;
   padding-left: 20%;
   padding-right: 20%;
   justify-content: space-around;

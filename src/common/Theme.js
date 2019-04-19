@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components/native";
 
-export const GrayColor = '#7E7E8F';
-export const ItemTitleSize = 15;
+export const GrayColor = '#35353c';
+
+export const RowView = styled.View`
+  flex-direction: row;
+`;

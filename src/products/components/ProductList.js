@@ -5,20 +5,20 @@ import Product from "./Product"
 
 function ProductList({products}) {
   return(
-    <ListContainer>
-      {
-        products.map((product, index) => (
-          <Product
-            key={product.id}
-            title={product.title}
-            image={product.coverImage}
-            price={product.price}
-            score={product.score}
-            available={product.available}
-          />
-        ))
-      }
-    </ListContainer>
+    <ListContainer
+      data={products}
+      keyExtractor={(item) => item.id}
+      renderItem={({item}) => (
+        <Product
+          key={item.id}
+          title={item.title}
+          image={item.coverImage}
+          price={item.price}
+          score={item.score}
+          available={item.available}
+        />
+      )}
+    />
   )
 }
 
@@ -29,6 +29,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps) (ProductList)
 
-const ListContainer = styled.View`
+const ListContainer = styled.FlatList`
 
 `;
