@@ -1,14 +1,31 @@
 import React, {Component} from "react";
-import {View, StyleSheet, Text} from "react-native";
+import {View, ScrollView, StyleSheet, Text} from "react-native";
+import {connect} from "react-redux";
+import WishList from "../components/WishList";
+import {ContentDivider} from "../../common/Theme";
 
-export default class WishListContainer extends Component<Props> {
+class WishListContainer extends Component<Props> {
   state = {};
 
   render() {
-    return(
-      <View style={{flex: 1,}}>
-        <Text>WishListContainer</Text>
-      </View>
+    const {wishList} = this.props;
+    return (
+      <ScrollView style={{flex: 1,}}>
+        <ContentDivider flex={1}>
+          <Text>WishListContainer</Text>
+        </ContentDivider>
+        <ContentDivider flex={9}>
+          <WishList products={wishList}/>
+        </ContentDivider>
+      </ScrollView>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    wishList: state.wishList,
+  }
+};
+
+export default connect(mapStateToProps)(WishListContainer)

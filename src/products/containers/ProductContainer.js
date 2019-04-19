@@ -5,16 +5,18 @@ import {connect} from "react-redux";
 import styled from "styled-components/native";
 import ProductList from "../components/ProductList";
 import Paginator from "../components/Paginator";
+import {ContentDivider} from "../../common/Theme";
 
 class ProductContainer extends Component<Props> {
   state = {};
 
   componentDidMount() {
     this.props.getProducts();
-  }
+  };
 
   render() {
     const {products} = this.props;
+
     return (
       <ScrollView
         style={{flex: 1,}}
@@ -44,10 +46,6 @@ const mapDispatchToProps = {
 const Header = styled.Text`
   font-size: 30;
   font-weight: 700;
-`;
-
-const ContentDivider = styled.View`
-  flex: ${({flex}) => flex ? flex : 1};
 `;
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer)

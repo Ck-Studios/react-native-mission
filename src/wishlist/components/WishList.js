@@ -1,22 +1,20 @@
 import React from "react";
 import styled from "styled-components/native";
-import {connect} from "react-redux";
-import Product from "./Product"
+import WishProduct from "./WishProduct";
 
-export default function ProductList({products}) {
-  return(
+export default function WishList({products}) {
+  console.log(products)
+  return (
     <ListContainer
       data={products}
       keyExtractor={(item) => item.id}
       renderItem={({item}) => (
-        <Product
-          key={item.id}
+        <WishProduct
           id={item.id}
           title={item.title}
           image={item.coverImage}
           price={item.price}
-          score={item.score}
-          cartColor={item.cartColor}
+          selected={item.selected}
           available={item.available}
         />
       )}
@@ -25,5 +23,4 @@ export default function ProductList({products}) {
 }
 
 const ListContainer = styled.FlatList`
-
 `;
