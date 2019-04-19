@@ -1,7 +1,7 @@
 import {productList} from "./data/productItems";
 import {coupons} from "./data/coupons";
 import {
-  GET_PRODUCTS
+  GET_PRODUCTS, ON_PRESS_PAGE
 } from "./Actions";
 
 const sortedProductList = productList.sort((current, next) => {
@@ -18,6 +18,8 @@ const initialState = {
 
 export default function reducer(state=initialState, action) {
   switch(action.type) {
+    case ON_PRESS_PAGE:
+      return {...state, page: action.nextPage};
     case GET_PRODUCTS:
       const lastProductIndex = state.page * state.displayItemCount;
       const firstProductIndex = lastProductIndex - state.displayItemCount;
